@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>shyam share point</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #f5f7fa;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  a {
+    color: #bfa34a;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  a:hover, a:focus {
+    color: #d1b85c;
+    outline: none;
+  }
+  h1, h2, h3 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #bfa34a;
+    padding-bottom: 0.25rem;
+    max-width: max-content;
+  }
+  p {
+    margin-bottom: 1em;
+    color: #444;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  header {
+    background: #141c2f;
+    color: #d1b85c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,.4);
+  }
+  .logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    gap: 2rem;
+  }
+  nav ul li a {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  nav ul li a:hover, nav ul li a:focus {
+    color: #f3df7d;
+    text-decoration: underline;
+  }
+
+  /* Hero Section */
+  .hero {
+    background:
+      linear-gradient(135deg, rgba(191,163,74,0.85) 0%, rgba(65,58,17,0.9) 100%), 
+      url('https://images.unsplash.com/photo-1565372910979-caa6e4cc0821?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 7rem 1rem 8rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    text-shadow: 4px 4px 10px rgba(0,0,0,.7);
+    margin-bottom: 1.25rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 660px;
+    margin: 0 auto 2rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 8px rgba(0,0,0,.6);
+  }
+  .btn-primary {
+    background-color: #bfa34a;
+    color: #141c2f;
+    border: none;
+    padding: 0.9rem 2.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(191,163,74,0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    user-select: none;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: #d1b85c;
+    box-shadow: 0 8px 20px rgba(209,184,92,0.7);
+    outline: none;
+  }
+
+  /* About Section */
+  section {
+    padding: 4rem 0 3rem;
+  }
+  #about p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+  }
+
+  /* Services Section */
+  #services {
+    background: #fff;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 45px rgba(165,145,79,0.15);
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 2.5rem;
+    margin-top: 1.8rem;
+  }
+  .service-card {
+    background: #faf7e8;
+    border-radius: 15px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 7px 20px rgba(191,163,74,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .service-card:hover, .service-card:focus-within {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(191,163,74,0.3);
+    outline: none;
+  }
+  .service-card h3 {
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: #7b6d0c;
+  }
+  .service-card p {
+    font-weight: 400;
+    color: #6c6c44;
+    font-size: 1rem;
+  }
+
+  /* Testimonials Section */
+  #testimonials {
+    background: #141c2f;
+    color: #f3df7d;
+    padding: 5rem 1rem 5rem;
+  }
+  .testimonial-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 0.4rem;
+    user-select: none;
+  }
+  .testimonial-card {
+    background: rgba(191, 163, 74, 0.15);
+    border-radius: 16px;
+    padding: 2.2rem 2.5rem;
+    min-width: 300px;
+    box-shadow: 0 8px 25px rgba(191,163,74, 0.3);
+    flex-shrink: 0;
+    cursor: grab;
+    transition: background-color 0.3s;
+  }
+  .testimonial-card:active {
+    cursor: grabbing;
+  }
+  .testimonial-card:hover {
+    background: rgba(191, 163, 74, 0.3);
+  }
+  .testimonial-message {
+    font-style: italic;
+    margin-bottom: 1.15rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #efebd5;
+  }
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #f7f3d9;
+  }
+
+  /* Contact Section */
+  #contact {
+    max-width: 600px;
+    margin: 2rem auto 4rem;
+    text-align: center;
+  }
+  #contact h2 {
+    color: #1a1a1a;
+  }
+  #contact p {
+    color: #555;
+  }
+  #contact form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  #contact input[type="text"],
+  #contact input[type="email"],
+  #contact textarea {
+    padding: 0.85rem 1.2rem;
+    border-radius: 12px;
+    border: 1.8px solid #c2b871;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: vertical;
+  }
+  #contact input[type="text"]:focus,
+  #contact input[type="email"]:focus,
+  #contact textarea:focus {
+    border-color: #bfa34a;
+    box-shadow: 0 0 12px rgba(191,163,74, 0.8);
+    outline: none;
+  }
+  #contact textarea {
+    min-height: 130px;
+    max-height: 250px;
+  }
+  #contact button {
+    background-color: #bfa34a;
+    color: #141c2f;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(191,163,74,0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    user-select: none;
+  }
+  #contact button:hover, #contact button:focus {
+    background-color: #d1b85c;
+    box-shadow: 0 10px 25px rgba(209,184,92,0.7);
+    outline: none;
+  }
+  .form-success {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #2d7a1f;
+    display: none;
+  }
+  .form-error {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #951515;
+    display: none;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #141c2f;
+    color: #aeaeae;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    user-select: none;
+    border-top: 2px solid #211f37;
+  }
+  footer a {
+    color: #bfa34a;
+    font-weight: 600;
+  }
+  footer a:hover, footer a:focus {
+    color: #d1b85c;
+    outline: none;
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero h1 {
+      font-size: 2.1rem;
+    }
+    nav ul {
+      gap: 1rem;
+    }
+    .testimonial-container {
+      gap: 1rem;
+    }
+    #services {
+      padding: 2rem 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+    <div class="logo" tabindex="0">shyam share point</div>
+    <nav aria-label="Primary navigation">
+      <ul role="list">
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#services" tabindex="0">Services</a></li>
+        <li><a href="#testimonials" tabindex="0">Testimonials</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" role="region" aria-label="Welcome section">
+  <div class="container">
+    <h1>Plan Today, Prosper Tomorrow</h1>
+    <p>Trusted financial advice and expert investment strategies tailored just for you.</p>
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Contact us to schedule a consultation">Schedule a Consultation</button>
+  </div>
+</section>
+
+<section id="about" role="region" aria-labelledby="about-title">
+  <div class="container">
+    <h2 id="about-title">Who We Are</h2>
+    <p>EliteFinance is dedicated to empowering clients with personalized financial planning and wealth management solutions. Our seasoned advisors blend expertise with integrity to help you secure and grow your financial future.</p>
+    <p>Whether you’re preparing for retirement, investments, or estate planning, our tailored strategies put your goals first.</p>
+  </div>
+</section>
+
+<section id="services" role="region" aria-labelledby="services-title">
+  <div class="container">
+    <h2 id="services-title">Our Expertise</h2>
+    <div class="services-grid">
+      <article class="service-card" tabindex="0" aria-label="Investment advice service">
+        <h3>Investment Advisory</h3>
+        <p>Customized portfolio management to maximize returns and reduce risks.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Retirement planning service">
+        <h3>Retirement Planning</h3>
+        <p>Comprehensive plans to safeguard your future and ensure lifelong financial independence.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Tax planning service">
+        <h3>Tax Planning</h3>
+        <p>Strategic tax solutions to optimize your wealth and savings.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Estate management service">
+        <h3>Estate Management</h3>
+        <p>Protect your legacy with expert wills, trusts, and asset management guidance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" role="region" aria-labelledby="testimonials-title">
+  <div class="container">
+    <h2 id="testimonials-title" style="text-align:center; margin-bottom:2rem;">What Our Clients Say</h2>
+    <div class="testimonial-container" tabindex="0" aria-live="polite" aria-label="Client testimonials">
+      <blockquote class="testimonial-card" tabindex="0" aria-label="Testimonial from client Sarah">
+        <p class="testimonial-message">“EliteFinance transformed how I view my investments. Their insight and attention to detail make all the difference.”</p>
+        <footer class="testimonial-author">- Sarah L.</footer>
+      </blockquote>
+      <blockquote class="testimonial-card" tabindex="0" aria-label="Testimonial from client David">
+        <p class="testimonial-message">“I feel completely confident in my retirement plan thanks to EliteFinance's thorough expertise and support.”</p>
+        <footer class="testimonial-author">- David M.</footer>
+      </blockquote>
+      <blockquote class="testimonial-card" tabindex="0" aria-label="Testimonial from client Anita">
+        <p class="testimonial-message">“Thanks to their tax strategies, I’ve saved more than I imagined possible. Highly recommend!”</p>
+        <footer class="testimonial-author">- Anita G.</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="contact" role="region" aria-labelledby="contact-title">
+  <div class="container">
+    <h2 id="contact-title">Get In Touch</h2>
+    <p>Have questions or want to book your free consultation? Reach out to us today!</p>
+    <form id="contact-form" aria-label="Contact form with name, email, message fields" novalidate>
+      <input type="text" id="name" name="name" placeholder="Full Name" required aria-required="true" aria-label="Full Name" autocomplete="name" />
+      <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true" aria-label="Email Address" autocomplete="email" />
+      <textarea id="message" name="message" placeholder="Your message" required aria-required="true" aria-label="Your Message"></textarea>
+      <button type="submit" aria-label="Send message">Send Message</button>
+      <div class="form-success" id="success-message" role="alert">Thank you! Your message has been sent successfully.</div>
+      <div class="form-error" id="error-message" role="alert">Oops! Please check your inputs and try again.</div>
+    </form>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <p>© 2024 EliteFinance. All rights reserved. | <a href="mailto:contact@elitefinance.com">contact@elitefinance.com</a> | Tel: (555) 123-4567</p>
+</footer>
+
+<script>
+  // Form submission with basic validation
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      errorMessage.textContent = 'Please fill in all fields.';
+      errorMessage.style.display = 'block';
+      return;
+    }
+    // Email regex basic check
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      errorMessage.textContent = 'Please enter a valid email address.';
+      errorMessage.style.display = 'block';
+      return;
+    }
+
+    successMessage.style.display = 'block';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
+
